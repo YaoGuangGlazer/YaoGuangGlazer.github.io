@@ -1,96 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mark's portfolio - BSIT student and aspiring web developer.">
   <title>Portfolio</title>
   <link rel="icon" type="image/png" href="images/favicon.png">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
 
   <style>
-    body {
-        font-family: 'Poppins', sans-serif;
-        background-color: #0f172a;
-        color: white;
-        overflow-x: hidden;
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
     }
-    .text-custom { color: #4a90e2; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0f172a;
+      color: white;
+    }
+
+    .text-custom {
+      color: #4a90e2;
+    }
+
+    section {
+      scroll-margin-top: 70px;
+    }
 
     /* Navbar */
-    .navbar { background-color: transparent; padding: 1rem 9%; }
-    .navbar-brand { font-size: 3rem; color: #4a90e2; font-weight: 800; transition: 0.5s ease; }
-    .navbar-brand:hover { transform: scale(1.1); color: #357abd; }
-    .nav-link { font-size: 1.8rem; color: white; font-weight: 500; margin-left: 2rem; transition: 0.3s ease; }
-    .nav-link:hover, .nav-link.active { color: #4a90e2; }
-    
+    .navbar {
+      background-color: rgba(15, 23, 42, 0.95);
+      padding: 0.8rem 9%;
+      border-bottom: 1px solid #1e293b;
+    }
+
+    .navbar-brand {
+      font-size: 2rem;
+      color: #4a90e2;
+      font-weight: 800;
+      transition: 0.5s ease;
+    }
+
+    .navbar-brand:hover {
+      transform: scale(1.1);
+      color: #357abd;
+    }
+
+    .nav-link {
+      font-size: 1.05rem;
+      color: white;
+      font-weight: 500;
+      margin-left: 1.8rem;
+      transition: 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #4a90e2;
+    }
+
     @media(max-width: 991px) {
-        .navbar-collapse { background-color: #1e293b; border-left: 3px solid #4a90e2; border-bottom: 3px solid #4a90e2; border-bottom-left-radius: 2rem; padding: 2rem; position: absolute; top: 100%; right: 0; width: 40%; }
-        .nav-link { font-size: 2rem; margin: 1rem 0; }
+      .navbar {
+        padding: 0.8rem 5%;
+      }
+
+      .navbar-collapse {
+        background-color: #1e293b;
+        border-left: 3px solid #4a90e2;
+        border-bottom: 3px solid #4a90e2;
+        border-bottom-left-radius: 2rem;
+        padding: 1rem 2rem;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: 60%;
+        z-index: 999;
+      }
+
+      .nav-link {
+        font-size: 1.2rem;
+        margin: 0.5rem 0;
+      }
     }
 
     /* Image */
-    .home-img { width: 32vw; max-width: 400px; min-width: 250px; box-shadow: 0 0 25px #4a90e2; cursor: pointer; transition: 0.2s linear; }
-    .home-img:hover { transform: scale(1.02); }
+    .home-img {
+      width: 32vw;
+      max-width: 400px;
+      min-width: 250px;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      box-shadow: 0 0 25px #4a90e2;
+      cursor: pointer;
+      transition: 0.2s linear;
+    }
+
+    .home-img:hover {
+      transform: scale(1.02);
+    }
 
     /* Icons */
-    .social-icons a { display: inline-flex; justify-content: center; align-items: center; width: 4rem; height: 4rem; background: transparent; border: 0.2rem solid #4a90e2; font-size: 2rem; border-radius: 50%; margin: 3rem 1.5rem 3rem 0; transition: 0.3s ease; color: #4a90e2; text-decoration: none; }
-    .social-icons a:hover { color: #0f172a; transform: scale(1.3) translateY(-5px); background-color: #4a90e2; box-shadow: 0 0 25px #4a90e2; }
+    .social-icons a {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 3.2rem;
+      height: 3.2rem;
+      background: transparent;
+      border: 0.15rem solid #4a90e2;
+      font-size: 1.5rem;
+      border-radius: 50%;
+      margin: 2rem 1rem 2rem 0;
+      transition: 0.3s ease;
+      color: #4a90e2;
+      text-decoration: none;
+    }
+
+    .social-icons a:hover {
+      color: #0f172a;
+      transform: scale(1.2) translateY(-5px);
+      background-color: #4a90e2;
+      box-shadow: 0 0 25px #4a90e2;
+    }
 
     /* Button */
-    .btn-custom { padding: 1rem 2.8rem; background-color: #0f172a; border-radius: 4rem; font-size: 1.6rem; color: #4a90e2; letter-spacing: 0.3rem; font-weight: 600; border: 2px solid #4a90e2; transition: 0.3s ease; }
-    .btn-custom:hover { transform: scale3d(1.03, 1.03, 1.03); background-color: #4a90e2; color: #0f172a; box-shadow: 0 0 25px #4a90e2; }
+    .btn-custom {
+      padding: 0.7rem 2.2rem;
+      background-color: #0f172a;
+      border-radius: 4rem;
+      font-size: 1.1rem;
+      color: #4a90e2;
+      letter-spacing: 0.15rem;
+      font-weight: 600;
+      border: 2px solid #4a90e2;
+      transition: 0.3s ease;
+    }
+
+    .btn-custom:hover {
+      transform: scale3d(1.03, 1.03, 1.03);
+      background-color: #4a90e2;
+      color: #0f172a;
+      box-shadow: 0 0 25px #4a90e2;
+    }
+
+    /*Eeducation */
+    .card-custom {
+      box-shadow: 0 0 15px rgba(74, 144, 226, 0.3);
+      transition: 0.3s ease;
+    }
+
+    .card-custom:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 0 25px rgba(74, 144, 226, 0.7);
+    }
 
     /* Form */
-    .border-custom { border: 2px solid #4a90e2; }
-    .form-control::placeholder { color: #aaa; }
-    .form-control:focus { background-color: transparent; color: white; border-color: #4a90e2; box-shadow: 0 0 10px #4a90e2; }
+    .border-custom {
+      border: 2px solid #4a90e2;
+    }
+
+    .form-control {
+      background-color: transparent;
+      color: white;
+      border: 2px solid #4a90e2;
+    }
+
+    .form-control::placeholder {
+      color: #aaa;
+    }
+
+    .form-control:focus {
+      background-color: transparent;
+      color: white;
+      border-color: #4a90e2;
+      box-shadow: 0 0 10px #4a90e2;
+    }
 
     /* Typing Animation */
-    .typing-text { font-size: 34px; font-weight: 600; min-width: 280px; }
-    .typing-text span { position: relative; }
-    .typing-text span::before { 
-        content: "Web Developer"; 
-        color: #4a90e2; 
-        animation: words 20s infinite; 
-    }
-    .typing-text span::after { 
-        content: ""; 
-        background-color: #0f172a; 
-        position: absolute; 
-        width: calc(100% + 8px); 
-        height: 100%; 
-        border-left: 3px solid #4a90e2;
-        right: -8px; 
-        animation: cursor 0.6s infinite, type 4s steps(20) infinite; 
+    .typing-text {
+      font-size: 34px;
+      font-weight: 600;
+      min-width: 280px;
     }
 
-    @keyframes cursor { 
-        0%, 100% { border-left-color: transparent; } 
-        50% { border-left-color: #4a90e2; } 
+    .typing-text span {
+      position: relative;
     }
+
+    .typing-text span::before {
+      content: "Web Developer";
+      color: #4a90e2;
+      animation: words 20s infinite;
+    }
+
+    .typing-text span::after {
+      content: "";
+      background-color: #0f172a;
+      position: absolute;
+      width: calc(100% + 8px);
+      height: 100%;
+      border-left: 3px solid #4a90e2;
+      right: -8px;
+      animation: cursor 0.6s infinite, type 4s steps(20) infinite;
+    }
+
+    /* smaller text on phones so it doesn't overflow */
+    @media(max-width: 575px) {
+      .typing-text {
+        font-size: 26px;
+        min-width: 0;
+      }
+    }
+
+    @keyframes cursor {
+
+      0%,
+      100% {
+        border-left-color: transparent;
+      }
+
+      50% {
+        border-left-color: #4a90e2;
+      }
+    }
+
     @keyframes type {
-        0%, 10%, 100% { width: calc(100% + 8px); }
-        40%, 60% { width: 0; }
+
+      0%,
+      10%,
+      100% {
+        width: calc(100% + 8px);
+      }
+
+      40%,
+      60% {
+        width: 0;
+      }
     }
+
     @keyframes words {
-        0%, 20% { content: "Programmer"; }
-        21%, 40% { content: "Developer"; }
-        41%, 60% { content: "Web Designer"; }
-        61%, 80% { content: "Gamer"; }
-        81%, 100% { content: "Innovator"; }
+
+      0%,
+      20% {
+        content: "Programmer";
+      }
+
+      21%,
+      40% {
+        content: "Developer";
+      }
+
+      41%,
+      60% {
+        content: "Web Designer";
+      }
+
+      61%,
+      80% {
+        content: "Gamer";
+      }
+
+      81%,
+      100% {
+        content: "Innovator";
+      }
     }
   </style>
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#navbarNav" data-bs-root-margin="0px 0px -40%" tabindex="0">
   <header>
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg fixed-top navbar-dark">
       <div class="container-fluid px-0">
         <a class="navbar-brand" href="#home">Rydra</a>
-        <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <button class="navbar-toggler shadow-none border-0" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
@@ -106,24 +296,30 @@
   </header>
 
 
-  <section id="home" class="container vh-100 d-flex align-items-center justify-content-center">
+  <!-- Home -->
+  <section id="home" class="container min-vh-100 d-flex align-items-center justify-content-center pt-5">
     <div class="row w-100 justify-content-between flex-column flex-lg-row-reverse text-center text-lg-start">
-      <div class="col-lg-5 mb-5 mb-lg-0 d-flex justify-content-center">
-        <img src="images/me.jpg" alt="Mark Profile" class="img-fluid rounded-circle home-img">
+      <div class="col-lg-5 mt-5 mt-lg-0 mb-5 mb-lg-0 d-flex justify-content-center">
+        <img src="assets/me.jpg" alt="Mark Profile" class="img-fluid rounded-circle home-img">
       </div>
       <div class="col-lg-6">
         <h1 class="display-1 fw-bold">I'm <span class="text-custom">Mark</span></h1>
         <h3 class="typing-text mb-3">A <span></span></h3>
-        <p class="fs-4">LET IT RIDE</p>
+        <p class="fs-4">Casual BSIT Student</p>
         <div class="social-icons">
-          <a href="https://github.com/YaoGuangGlazer"><i class="fa-brands fa-github"></i></a>
-          <a href="#"><i class="fa-brands fa-youtube"></i></a>
+          <a href="https://github.com/YaoGuangGlazer" target="_blank" aria-label="Github"><i
+              class="fa-brands fa-github"></i></a>
+          <a href="https://youtube.com/@arishmr-g9l?si=6kuS4R-VA3uRra-S" aria-label="Youtube"><i
+              class="fa-brands fa-youtube"></i></a>
+          <a href="https://www.facebook.com/share/1E7pEfjh3j/" aria-label="Facebook"><i
+              class="fa-brands fa-facebook"></i></a>
         </div>
-        <a href="#skills" class="btn btn-custom text-decoration-none mt-3">About Me</a>
+        <a href="#skills" class="btn btn-custom text-decoration-none mt-3">My Skills</a>
       </div>
     </div>
   </section>
 
+  <!-- Skills -->
   <section id="skills" class="container min-vh-100 d-flex flex-column justify-content-center py-5">
     <h2 class="display-4 fw-bold text-center mb-5">My <span class="text-custom">Skills</span></h2>
     <div class="row g-5">
@@ -131,79 +327,91 @@
         <h3 class="mb-4">Coding Skills</h3>
         <div class="mb-3">
           <div class="d-flex justify-content-between"><span>HTML & CSS</span><span>50%</span></div>
-          <div class="progress mt-2" style="height: 10px; background-color: #1e293b;">
+          <div class="progress mt-2" style="height: 10px; background-color: #1e293b;" role="progressbar"
+            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
             <div class="progress-bar" style="width: 50%; background-color: #4a90e2;"></div>
           </div>
         </div>
         <div class="mb-3">
           <div class="d-flex justify-content-between"><span>JavaScript</span><span>20%</span></div>
-          <div class="progress mt-2" style="height: 10px; background-color: #1e293b;">
+          <div class="progress mt-2" style="height: 10px; background-color: #1e293b;" role="progressbar"
+            aria-valuenow="20" aria-valuemin="0" aria-valuemax="100">
             <div class="progress-bar" style="width: 20%; background-color: #4a90e2;"></div>
           </div>
         </div>
         <div class="mb-3">
-          <div class="d-flex justify-content-between"><span>Python</span><span>40%</span></div>
-          <div class="progress mt-2" style="height: 10px; background-color: #1e293b;">
-            <div class="progress-bar" style="width: 40%; background-color: #4a90e2;"></div>
+          <div class="d-flex justify-content-between"><span>Python</span><span>30%</span></div>
+          <div class="progress mt-2" style="height: 10px; background-color: #1e293b;" role="progressbar"
+            aria-valuenow="30" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: 30%; background-color: #4a90e2;"></div>
           </div>
         </div>
       </div>
       <div class="col-lg-6">
         <h3 class="mb-4">Professional Skills</h3>
         <div class="mb-3">
-          <div class="d-flex justify-content-between"><span>Web Design</span><span>60%</span></div>
-          <div class="progress mt-2" style="height: 10px; background-color: #1e293b;">
-            <div class="progress-bar" style="width: 60%; background-color: #4a90e2;"></div>
+          <div class="d-flex justify-content-between"><span>Web Design</span><span>50%</span></div>
+          <div class="progress mt-2" style="height: 10px; background-color: #1e293b;" role="progressbar"
+            aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: 50%; background-color: #4a90e2;"></div>
           </div>
         </div>
         <div class="mb-3">
-          <div class="d-flex justify-content-between"><span>Problem Solving</span><span>60%</span></div>
-          <div class="progress mt-2" style="height: 10px; background-color: #1e293b;">
-            <div class="progress-bar" style="width: 60%; background-color: #4a90e2;"></div>
+          <div class="d-flex justify-content-between"><span>Problem Solving</span><span>40%</span></div>
+          <div class="progress mt-2" style="height: 10px; background-color: #1e293b;" role="progressbar"
+            aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: 40%; background-color: #4a90e2;"></div>
           </div>
         </div>
         <div class="mb-3">
-          <div class="d-flex justify-content-between"><span>Backend</span><span>45%</span></div>
-          <div class="progress mt-2" style="height: 10px; background-color: #1e293b;">
-            <div class="progress-bar" style="width: 45%; background-color: #4a90e2;"></div>
+          <div class="d-flex justify-content-between"><span>Backend</span><span>35%</span></div>
+          <div class="progress mt-2" style="height: 10px; background-color: #1e293b;" role="progressbar"
+            aria-valuenow="35" aria-valuemin="0" aria-valuemax="100">
+            <div class="progress-bar" style="width: 35%; background-color: #4a90e2;"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Education -->
   <section id="education" class="container min-vh-100 d-flex flex-column justify-content-center py-5">
     <h2 class="display-4 fw-bold text-center mb-5">My <span class="text-custom">Education</span></h2>
     <div class="row g-4">
       <div class="col-md-6">
-        <div class="card bg-transparent border-custom h-100 p-4 rounded-4" style="box-shadow: 0 0 15px rgba(74,144,226,0.3);">
+        <div class="card card-custom bg-transparent border-custom h-100 p-4 rounded-4">
           <h4 class="text-custom"><i class="fa-solid fa-calendar text-white me-2"></i> 2024 - 2026</h4>
           <h3 class="text-white mt-2">College</h3>
           <p class="text-white fw-bold">Polytechnic University of the Philippines</p>
-          <p class="text-secondary">Currently Taking 2nd Year BSIT Course in PUPSTC.</p>
+          <p class="text-secondary">Currently Taking Bachelor of Science in Information Technology Course in Polytechnic
+            University of the Philippines Santo Tomas Campus.</p>
         </div>
       </div>
       <div class="col-md-6">
-        <div class="card bg-transparent border-custom h-100 p-4 rounded-4" style="box-shadow: 0 0 15px rgba(74,144,226,0.3);">
+        <div class="card card-custom bg-transparent border-custom h-100 p-4 rounded-4">
           <h4 class="text-custom"><i class="fa-solid fa-calendar text-white me-2"></i> 2022 - 2024</h4>
           <h3 class="text-white mt-2">Senior High School</h3>
           <p class="text-white fw-bold">Santo Tomas Senior High School</p>
-          <p class="text-secondary">Graduated as a student of Science, Technology, Engineering, Mathematics Strand.</p>
+          <p class="text-secondary">Graduated as a student of Science, Technology, Engineering, Mathematics Strand in
+            Santo Tomas Senior High School</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Contact -->
   <section id="contact" class="container min-vh-100 d-flex flex-column justify-content-center py-5 mb-5">
     <h2 class="display-4 fw-bold text-center mb-5">Contact <span class="text-custom">Details</span></h2>
     <div class="row justify-content-center">
-      <div class="col-md-8 text-center mb-5">
-        <p class="fs-4"><i class="fa-solid fa-envelope text-custom me-2"></i> markluzano100@example.com</p>
-        <p class="fs-4"><i class="fa-solid fa-phone text-custom me-2"></i> +639454167096</p>
-        <p class="fs-4"><i class="fa-solid fa-location-dot text-custom me-2"></i> Philippines</p>
+      <div class="col-md-8 text-center mb-4">
+        <p class="fs-5"><i class="fa-solid fa-envelope text-custom me-2"></i> markluzano100@example.com</p>
+        <p class="fs-5"><i class="fa-solid fa-phone text-custom me-2"></i> +639454167096</p>
+        <p class="fs-5"><i class="fa-solid fa-location-dot text-custom me-2"></i> Philippines</p>
       </div>
-    </section>
+    </div>
+  </section>
 
+  <!-- Footer -->
   <footer class="text-center py-4 mt-5 mb-1" style="border-top: 2px solid #4a90e2;">
     <div class="mb-3">
       <a href="#home" class="text-white text-decoration-none fs-5 mx-3">Home</a>
@@ -212,14 +420,20 @@
       <a href="#contact" class="text-white text-decoration-none fs-5 mx-3">Contact</a>
     </div>
     <div class="mb-3">
-      <a href="#" class="text-white text-decoration-none fs-5 mx-3">Github</a>
-      <a href="#" class="text-white text-decoration-none fs-5 mx-3">Facebook</a>
-      <a href="#" class="text-white text-decoration-none fs-5 mx-3">Instagram</a>
-      <a href="#" class="text-white text-decoration-none fs-5 mx-3">Youtube</a>
+      <a href="https://github.com/YaoGuangGlazer" target="_blank"
+        class="text-white text-decoration-none fs-5 mx-3">Github</a>
+      <a href="https://www.facebook.com/share/1E7pEfjh3j/"
+        class="text-white text-decoration-none fs-5 mx-3">Facebook</a>
+      <a href="https://youtu.be/eioYulMp_5k?si=IAQWIvBFr7xMoamr"
+        class="text-white text-decoration-none fs-5 mx-3">Elation</a>
+      <a href="https://youtube.com/@arishmr-g9l?si=6kuS4R-VA3uRra-S"
+        class="text-white text-decoration-none fs-5 mx-3">Youtube</a>
     </div>
-    <a href="#home" class="btn btn-custom px-8 py-2"><i class="fa-solid fa-arrow-up"></i></a>
+    <p class="text-secondary mb-3">&copy; 2026 Mark. All rights reserved.</p>
+    <a href="#home" class="btn btn-custom px-4 py-2" aria-label="Back to top"><i class="fa-solid fa-arrow-up"></i></a>
   </footer>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
